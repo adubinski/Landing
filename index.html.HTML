@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Dubinski - Chojkier</title> <br>
+    <title>Sucesiones en CABA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #111e2e;       /* Azul marino - Estudio Dubinski */
+            --accent: #bc9652;        /* Dorado / Bronce */
+            --accent-hover: #a37f3f;  
+            --whatsapp: #25d366;      /* Verde WhatsApp */
+            --bg-page: #fdfbf7;       /* Fondo crema */
+            --text-dark: #222c35;     
+            --text-muted: #5a6571;    
+            --card-bg: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(17,30,46,0.15);
+        }
+
+        .logo-main {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp-header {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid var(--accent);
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp-header:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(17,46,64,0.95), rgba(26,47,71,0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600') no-repeat center/cover;
+            color: #ffffff;
+            padding: 120px 8% 100px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 42px; margin-bottom: 25px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 18px; max-width: 750px; margin: 0 auto 40px; color: #e2e8f0; }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 18px 45px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(188,150,82,0.3);
+            transition: 0.3s;
+        }
+
+        .btn-cta:hover { background-color: #ffffff; transform: translateY(-2px); }
+
+        /* Tarjetas Informativas */
+        .info-section { padding: 90px 8%; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        .card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(17,30,46,0.04);
+            border-top: 5px solid var(--accent);
+            text-align: center;
+        }
+
+        .card h3 { font-family: 'Cinzel', serif; color: var(--primary); margin-bottom: 15px; font-size: 18px; }
+        .card p { font-size: 14px; color: var(--text-muted); }
+
+        /* Sección Pago Diferido */
+        .payment-highlight {
+            background-color: #f3efe6;
+            padding: 60px 8%;
+            text-align: center;
+            border-top: 1px solid #e0d9c8;
+            border-bottom: 1px solid #e0d9c8;
+        }
+
+        .payment-box {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px dashed var(--accent);
+            padding: 40px;
+            background: #fff;
+        }
+
+        .payment-box h2 { font-family: 'Cinzel', serif; color: var(--primary); margin-bottom: 20px; }
+
+        /* Requisitos */
+        .requirements { padding: 90px 8%; background: var(--bg-page); }
+        .container-req { max-width: 850px; margin: 0 auto; }
+        .req-list { list-style: none; margin-bottom: 30px; }
+        .req-list li { background: #fff; padding: 15px 25px; margin-bottom: 10px; border-left: 5px solid var(--primary); font-weight: 500; }
+
+        /* Contacto */
+        .contact-section { padding: 90px 8%; background: var(--primary); color: #fff; display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; }
+        .form-container { background: #fff; padding: 40px; border-radius: 6px; color: var(--text-dark); flex: 1; min-width: 300px; max-width: 500px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 5px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; }
+        .btn-submit { width: 100%; background: var(--primary); color: #fff; padding: 15px; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+
+        footer { padding: 40px 8%; text-align: center; background: #0b141f; color: #64748b; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="https://www.estudiodubinski.com.ar" class="logo-main">ESTUDIO DUBINSKI-CHOJKIER</a>
+        <a href="https://wa.me/5491131306121?text=Hola%20Estudio%20Dubinski,%20quiero%20hacer%20una%20consulta%20por%20una%20sucesión%20en%20CABA." class="btn-whatsapp-header" target="_blank">Consultar</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Sucesiones en CABA:<br><span>Gestión Profesional sin Adelantos</span></h1>
+        <p>Tramitamos su herencia con transparencia y agilidad. <br> Sin adelantos de dinero. <br>Trabajo a resultado.</p>
+        <a href="#contacto" class="btn-cta">Consultar ahora</a>
+    </section>
+
+    <!-- Info Cards Section -->
+    <section class="info-section">
+        <div class="grid-cards">
+            <div class="card">
+                <h3>🕒 ¿Cuánto Tarda?</h3>
+                <p>El proceso demora de <strong>4 a 6 meses</strong> hasta obtener la Declaratoria de Herederos.</p>
+            </div>
+            <div class="card">
+                <h3>🏠 Inscripción y Venta</h3>
+                <p>Una vez obtenida la declaratoria, el tracto abreviado o la inscripción en el RPI CABA demora entre <strong>30 y 45 días</strong>.</p>
+            </div>
+            <div class="card">
+                <h3>💰 Costo Claro</h3>
+                <p>Nuestros honorarios son del <strong>3-6%</strong> del valor real de los bienes (a convenir).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financiación Highlight -->
+    <section class="payment-highlight">
+        <div class="payment-box">
+            <h2>Financiación y Plazos de Pago</h2>
+            <p><strong>Usted no debe adelantar dinero.</strong> Se abonan los honorarios una vez que vende o inscribe algún inmueble, o dentro de los 6 meses de obtener la declaratoria de herederos. Esto le brinda tiempo más que suficiente para gestionar el pago.</p>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements">
+        <div class="container-req">
+            <h2 style="text-align: center; font-family: 'Cinzel'; margin-bottom: 40px;">Documentación Necesaria</h2>
+            <ul class="req-list">
+                <li>Partida de defunción de la persona fallecida.</li>
+                <li>Acta de matrimonio o de divorcio del fallecido.</li>
+                <li>Actas de nacimiento de los hijos.</li>
+                <li>Información de los inmuebles (para solicitar informes de dominio).</li>
+            </ul>
+            <p style="font-size: 14px; color: var(--text-muted); text-align: center;">
+                * Las partidas deben ser digitales. Si tiene las viejas, nosotros gestionamos las nuevas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div style="max-width: 400px;">
+            <h2 style="font-family: 'Cinzel'; color: var(--accent); font-size: 32px;">Inicie su Trámite Hoy</h2>
+            <p>Complete el formulario o contáctenos por WhatsApp para una evaluación sin cargo de su caso.</p>
+            <br>
+            <a href="https://wa.me/5491131306121?text=Hola%20Estudio%20Dubinski,%20quiero%20hacer%20una%20consulta%20por%20una%20sucesión%20en%20CABA." class="btn-cta" style="background: var(--whatsapp); color: #fff; width: 100%; text-align: center;" target="_blank">💬 WhatsApp Directo</a>
+        </div>
+        
+        <div class="form-container">
+            <!-- Formulario conectado a Formspree para envío automatizado a andresdubinski@gmail.com -->
+            <form action="https://formspree.io/f/xwvzglgb" method="POST">   
+		<div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="nombre" required placeholder="Ej: Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" name="telefono" required placeholder="Ej: 11 1234 5678">
+                </div>
+                <div class="form-group">
+                    <label>Consulta sobre los bienes (Opcional)</label>
+                    <textarea name="mensaje" rows="4" placeholder="Ej: Un departamento en Palermo."></textarea>
+                </div>
+                <!-- Filtro anti-spam automático -->
+                <input type="text" name="_gotcha" style="display:none">
+                <button type="submit" class="btn-submit">Enviar Consulta</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p> Estudio Dubinski - Chojkier | Abogados Sucesiones |  </p>
+        <p> Email: info@estudiodubinski.com.ar - ALICIA MOREU DE JUSTO 1150, 3°, 306 A, CABA. T.E. +54-1152794745</p>
+    </footer>
+
+</body>
+</html>
